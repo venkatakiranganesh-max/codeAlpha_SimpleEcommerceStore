@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Order History</title>
+
+<style>
+
+body{
+    font-family:Arial, sans-serif;
+    margin:0;
+    min-height:100vh;
+    background:linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2
+    );
+}
+
+h1{
+    text-align:center;
+    color:white;
+    padding:30px;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+}
+
+.card{
+    background:white;
+    width:300px;
+    padding:25px;
+    text-align:center;
+    border-radius:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.price{
+    color:green;
+    font-size:22px;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>📦 My Orders</h1>
+
+<div class="container">
+
+{% for order in orders %}
+
+<div class="card">
+<h2>
+📦 {{ order.product }}
+</h2>
+
+<p>
+Quantity : {{ order.quantity }}
+</p>
+
+<p class="price">
+₹{{ order.amount }}
+</p>
+
+<p>
+{{ order.date }}
+</p>
+
+</div>
+
+{% empty %}
+
+<h1>No Orders Found 😔</h1>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

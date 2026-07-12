@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>My Cart</title>
+
+<style>
+
+body{
+    font-family:Arial, sans-serif;
+    margin:0;
+
+    background:linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2
+    );
+
+    min-height:100vh;
+}
+
+
+h1{
+    text-align:center;
+    color:white;
+    padding:30px;
+    font-size:40px;
+}
+
+
+.item{
+
+    background:linear-gradient(
+        145deg,
+        #dbeafe,
+        #ffffff
+    );
+
+    width:400px;
+
+    margin:30px auto;
+
+    padding:25px;
+
+    text-align:center;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,0.4);
+}
+
+
+img{
+
+    width:250px;
+
+    height:200px;
+
+    object-fit:contain;
+
+    background:white;
+
+    padding:10px;
+
+    border-radius:20px;
+}
+
+
+h2{
+
+    font-size:30px;
+
+}
+
+
+h3{
+
+    color:green;
+
+    font-size:25px;
+}
+
+
+p{
+
+    color:#555;
+
+    font-size:18px;
+}
+
+
+
+button{
+
+    background:#ff5722;
+
+    color:white;
+
+    padding:15px 30px;
+
+    border:none;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+
+button:hover{
+
+    background:#e64a19;
+
+}
+
+
+.order{
+
+    text-align:center;
+
+    margin:30px;
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<h1>🛒 My Shopping Cart</h1>
+
+
+{% for item in items %}
+
+
+<div class="item">
+
+
+{% if item.product.image %}
+
+<img src="{{ item.product.image.url }}">
+
+{% endif %}
+
+
+<h2>{{ item.product.name }}</h2>
+
+
+<h3>₹{{ item.product.price }}</h3>
+
+
+<p>Quantity: {{ item.quantity }}</p>
+
+
+</div>
+
+
+{% endfor %}
+
+
+<div class="order">
+
+<a href="{% url 'checkout' %}">
+
+<button>
+Place Order ✅
+</button>
+
+</a>
+
+</div>
+
+
+</body>
+
+</html>

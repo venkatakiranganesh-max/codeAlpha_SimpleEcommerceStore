@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>My Profile</title>
+
+<style>
+
+body{
+
+    font-family:Arial, sans-serif;
+
+    margin:0;
+
+    min-height:100vh;
+
+    background:linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+
+.profile-card{
+
+    background:white;
+
+    width:400px;
+
+    padding:40px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,0.4);
+
+}
+
+
+.icon{
+
+    font-size:70px;
+
+}
+
+
+h1{
+
+    color:#333;
+
+}
+
+
+.info{
+
+    background:#dbeafe;
+
+    margin:15px;
+
+    padding:15px;
+
+    border-radius:20px;
+
+    font-size:20px;
+
+}
+
+
+button{
+
+    background:#ff5722;
+
+    color:white;
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:25px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="profile-card">
+
+
+<div class="icon">
+👤
+</div>
+
+
+<h1>
+{{ user.username }}
+</h1>
+
+
+<div class="info">
+
+📦 Total Orders : {{ orders_count }}
+
+</div>
+
+
+<div class="info">
+
+❤️ Wishlist Items : {{ wishlist_count }}
+
+</div>
+
+
+<a href="/">
+
+<button>
+Back To Home 🏠
+</button>
+
+</a>
+
+
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Wishlist</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin:0;
+            min-height:100vh;
+            background:linear-gradient(
+                135deg,
+                #667eea,
+                #764ba2
+            );
+        }
+ .view-btn{
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+.remove-btn{
+    background: linear-gradient(45deg, #8e2de2, #4a00e0);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+}       
+.view-btn{
+    background: linear-gradient(45deg,#0099ff,#00e5ff) !important;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:25px;
+    font-weight:bold;
+}
+
+.remove-btn{
+    background: linear-gradient(45deg,#8e2de2,#4a00e0) !important;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:25px;
+    font-weight:bold;
+}
+.remove-btn{
+    background:#ff0000;
+    color:white;
+}
+        h1{
+            text-align:center;
+            color:white;
+            padding:30px;
+        }
+
+        .container{
+            display:flex;
+            justify-content:center;
+            flex-wrap:wrap;
+            gap:30px;
+        }
+
+        .card{
+            width:300px;
+            background:white;
+            padding:25px;
+            border-radius:25px;
+            text-align:center;
+            box-shadow:0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        img{
+            width:200px;
+            height:200px;
+            object-fit:contain;
+        }
+
+        .price{
+            color:green;
+            font-size:25px;
+            font-weight:bold;
+        }
+
+        a{
+            text-decoration:none;
+        }
+
+        button{
+            padding:12px 25px;
+            border:none;
+            border-radius:20px;
+            background:#ff416c;
+            color:white;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+
+.view-btn{
+    background: linear-gradient(45deg,#0099ff,#00e5ff) !important;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:25px;
+    font-weight:bold;
+}
+
+.view-btn{
+    background: linear-gradient(45deg, #0099ff, #00e5ff) !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+    </style>
+
+</head>
+
+<body>
+
+<h1>❤️ My Wishlist</h1>
+
+<div class="container">
+
+{% for item in items %}
+
+<div class="card">
+
+<img src="{{ item.product.image.url }}">
+
+<h2>{{ item.product.name }}</h2>
+
+<p class="price">
+₹{{ item.product.price }}
+</p>
+
+<a href="{% url 'product_detail' item.product.id %}">
+<button class="view-btn">
+    View Details</button>
+</a>
+
+<br><br>
+
+<a href="{% url 'remove_wishlist' item.id %}">
+<button class="remove-btn">
+❌ Remove
+</button>
+</a>
+
+</div>
+
+{% empty %}
+
+<h1>No products in Wishlist 😔</h1>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

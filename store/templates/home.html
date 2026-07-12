@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Simple E-Commerce Store</title>
+
+<style>
+
+.search-box{
+
+    text-align:center;
+    margin:30px;
+
+}
+
+.details-btn{
+    background: linear-gradient(45deg, #0066ff, #00c6ff);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.cart-btn{
+    background: linear-gradient(45deg, #00b09b, #00ff62);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.wishlist-btn{
+    background: linear-gradient(45deg, #8e2de2, #4a00e0);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.buy-btn{
+    background: linear-gradient(45deg, #ffcc00, #ff7300);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+.details-btn:hover{
+    background: linear-gradient(45deg,#0099ff,#00e5ff);
+    transform: scale(1.08);
+}
+
+.cart-btn:hover{
+    background: linear-gradient(45deg,#00c853,#69f0ae);
+    transform: scale(1.08);
+}
+
+.wishlist-btn:hover{
+    background: linear-gradient(45deg,#8e2de2,#005bea);
+    transform: scale(1.08);
+}
+
+.buy-btn:hover{
+    background: linear-gradient(45deg,#ff4fd8,#0066ff);
+    transform: scale(1.08);
+    transition: 0.3s;
+    cursor: pointer;
+}
+.wishlist-btn{
+    background: linear-gradient(45deg, #8e2de2, #4a00e0) !important;
+    color:white !important;
+}
+
+.buy-btn{
+    background: linear-gradient(45deg, #ff00cc, #3333ff) !important;
+    color:white !important;
+}
+/* Footer Section */
+
+.footer{
+
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+    margin-top:80px;
+    width:100%;
+
+}
+
+.footer h2{
+
+    color:#ff9800;
+    font-size:35px;
+
+}
+
+.footer p{
+
+    color:#d1d5db;
+    font-size:18px;
+
+}
+
+.footer-links{
+
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin:20px;
+
+}
+
+.footer-links span{
+
+    font-size:18px;
+    font-weight:bold;
+
+}
+.wishlist-btn{
+    background: linear-gradient(45deg,#ff416c,#ff4b2b);
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+.wishlist-btn:hover{
+    transform:scale(1.1);
+}
+.search-box input{
+
+    width:400px;
+    padding:15px;
+    border-radius:30px;
+
+}
+
+.search-box button{
+
+    padding:15px 30px;
+    border-radius:30px;
+    background:#ff5722;
+    color:white;
+
+}
+.buy-btn{
+
+    background:linear-gradient(135deg,#ff9800,#ff5722);
+
+    color:white;
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:30px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+
+}
+
+
+.buy-btn:hover{
+
+    transform:scale(1.1);
+
+}
+/* Discount Badge */
+
+.discount{
+
+    background:linear-gradient(135deg,#ff512f,#dd2476);
+    color:white;
+    padding:10px;
+    width:110px;
+    border-radius:25px;
+    margin:15px auto;
+    font-weight:bold;
+
+}
+
+
+/* Rating */
+
+.rating{
+
+    color:#ff9800;
+    font-size:20px;
+    font-weight:bold;
+    margin:15px;
+
+}
+
+body{
+    font-family:Arial, sans-serif;
+    margin:0;
+
+    background:linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2
+    );
+
+    min-height:100vh;
+}
+
+
+/* Navbar */
+
+.navbar{
+
+    background:#111827;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 50px;
+
+    box-shadow:0px 5px 20px rgba(0,0,0,0.5);
+
+}
+
+
+.navbar h1{
+
+    margin:0;
+
+    font-size:35px;
+
+}
+
+
+.links a{
+
+    color:white;
+
+    margin:15px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    text-decoration:none;
+
+}
+
+
+.links a:hover{
+
+    color:#ff9800;
+
+}
+
+
+/* Welcome */
+
+.user{
+
+    text-align:center;
+
+    margin:25px;
+
+}
+
+
+.user h3{
+
+    display:inline-block;
+
+    background:linear-gradient(
+        135deg,
+        #ff9800,
+        #ff5722
+    );
+
+    color:white;
+
+    padding:15px 35px;
+
+    border-radius:40px;
+
+    font-size:25px;
+
+    box-shadow:0px 8px 20px rgba(0,0,0,0.4);
+
+}
+
+
+/* Products */
+
+
+.container{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+
+    padding:40px;
+
+}
+
+
+.card{
+
+    background:linear-gradient(
+        145deg,
+        #dbeafe,
+        #ffffff
+    );
+
+    width:280px;
+
+    padding:25px;
+
+    text-align:center;
+
+    border-radius:25px;
+
+    box-shadow:
+    0px 15px 30px rgba(0,0,0,0.4);
+
+    transition:0.3s;
+
+}
+
+
+.card:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+img{
+
+    width:220px;
+
+    height:200px;
+
+    object-fit:contain;
+
+    background:white;
+
+    padding:10px;
+
+    border-radius:15px;
+
+}
+
+
+h2{
+
+    font-size:30px;
+
+}
+
+
+h3{
+
+    color:green;
+
+    font-size:25px;
+
+}
+
+
+p{
+
+    color:#555;
+
+    line-height:1.5;
+
+}
+
+
+/* Buttons */
+
+
+button{
+
+    background:#ff5722;
+
+    color:white;
+
+    padding:12px 25px;
+
+    margin:8px;
+
+    border:none;
+
+    border-radius:25px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+button:hover{
+
+    background:#e64a19;
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+</div>
+<!-- Navbar -->
+
+<div class="navbar">
+
+
+<h1>🛒 Kiran Store</h1>
+
+
+<div class="links">
+
+<a href="/">
+Home 🏠
+</a>
+
+
+<a href="{% url 'cart' %}">
+Cart 🛒
+</a>
+
+
+<a href="{% url 'wishlist' %}">
+Wishlist ❤️
+</a>
+
+<a href="{% url 'order_history' %}">
+    My Orders 📦
+</a>
+
+<a href="{% url 'profile' %}">
+Profile 👤
+</a>
+
+<a href="{% url 'logout' %}">
+Logout
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- Welcome -->
+
+
+<div class="user">
+
+
+{% if user.is_authenticated %}
+
+
+<h3>
+Welcome {{ user.username }} 👋
+</h3>
+
+
+{% endif %}
+
+
+</div>
+
+<!-- Search Bar -->
+
+<div class="search-box">
+
+<form method="GET">
+
+<input 
+type="text"
+name="search"
+placeholder="🔍 Search Laptop, Iphone..."
+>
+
+<button type="submit">
+Search
+</button>
+
+</form>
+
+</div>
+
+
+<!-- Products -->
+
+
+<div class="container">
+
+
+{% for product in products %}
+
+
+<div class="card">
+
+
+{% if product.image %}
+
+<img src="{{ product.image.url }}">
+
+{% endif %}
+
+
+<div class="discount">
+🔥 20% OFF
+</div>
+
+<h2>{{ product.name }}</h2>
+
+<div class="rating">
+⭐⭐⭐⭐⭐ 4.8
+</div>
+
+<h3>₹{{ product.price }}</h3>
+
+
+<p>{{ product.description }}</p>
+
+
+
+<a href="{% url 'product_detail' product.id %}">
+
+<button class="details-btn">
+View Details
+</button>
+
+</a>
+
+
+<a href="{% url 'add_to_cart' product.id %}">
+
+<button class="cart-btn">
+Add to Cart 🛒
+</button>
+
+</a>
+
+<a href="{% url 'add_wishlist' product.id %}">
+    <button class="wishlist-btn">
+        ❤️ Add Wishlist
+    </button>
+</a>
+
+<br><br>
+
+<a href="{% url 'buy_now' product.id %}">
+
+<button class="buy-btn">
+
+⚡ Buy Now
+
+</button>
+
+</a>
+
+</div>
+
+
+{% endfor %}
+
+
+</div>
+<!-- Footer Section -->
+
+<div class="footer">
+
+    <h2>🛒 Kiran Store</h2>
+
+    <p>
+        Your trusted online shopping destination for mobiles,
+        laptops and accessories.
+    </p>
+
+    <div class="footer-links">
+
+        <span>About</span>
+
+        <span>Contact</span>
+
+        <span>Support</span>
+
+    </div>
+
+    <p>
+        © 2026 Kiran Store | Built with ❤️ using Django
+    </p>
+
+</div>
+
+
+</body>
+
+</html>
